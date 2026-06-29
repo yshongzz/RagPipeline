@@ -1,0 +1,43 @@
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix aicc: <http://smartmind.ai/aicc#> .
+
+# ── 클래스 정의 ────────────────────────────────────────
+aicc:고객문의  rdf:type owl:Class ;
+    rdfs:label "고객문의" .
+
+aicc:문의유형  rdf:type owl:Class ;
+    rdfs:label "문의유형" .
+
+aicc:처리단계  rdf:type owl:Class ;
+    rdfs:label "처리단계" .
+
+aicc:담당부서  rdf:type owl:Class ;
+    rdfs:label "담당부서" .
+
+# ── 관계(ObjectProperty) 정의 ──────────────────────────
+aicc:분류된다  rdf:type owl:ObjectProperty ;
+    rdfs:domain aicc:고객문의 ;
+    rdfs:range  aicc:문의유형 ;
+    rdfs:label  "분류된다" .
+
+aicc:처리절차  rdf:type owl:ObjectProperty ;
+    rdfs:domain aicc:문의유형 ;
+    rdfs:range  aicc:처리단계 ;
+    rdfs:label  "처리절차" .
+
+aicc:다음단계  rdf:type owl:ObjectProperty ;
+    rdfs:domain aicc:처리단계 ;
+    rdfs:range  aicc:처리단계 ;
+    rdfs:label  "다음단계" .
+
+aicc:담당한다  rdf:type owl:ObjectProperty ;
+    rdfs:domain aicc:처리단계 ;
+    rdfs:range  aicc:담당부서 ;
+    rdfs:label  "담당한다" .
+
+# ── 데이터 속성(DataProperty) 정의 ────────────────────
+aicc:연락처  rdf:type owl:DatatypeProperty ;
+    rdfs:domain aicc:담당부서 ;
+    rdfs:label  "연락처" .

@@ -1,0 +1,11 @@
+# 면접 준비 자료 (개인 자료, 업로드 제외)
+for_interview/
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.env
+
+# GraphDB
+*.license

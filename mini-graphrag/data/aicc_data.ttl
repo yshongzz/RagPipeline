@@ -1,0 +1,58 @@
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix aicc: <http://smartmind.ai/aicc#> .
+
+# ── 고객 문의 → 유형 분류 ──────────────────────────────
+aicc:문의_청구서  rdf:type aicc:고객문의 ;
+    aicc:분류된다 aicc:청구서문의 .
+
+aicc:문의_장애    rdf:type aicc:고객문의 ;
+    aicc:분류된다 aicc:장애문의 .
+
+aicc:문의_해지    rdf:type aicc:고객문의 ;
+    aicc:분류된다 aicc:해지문의 .
+
+# ── 청구서 문의 처리 절차 ──────────────────────────────
+aicc:청구서문의  rdf:type aicc:문의유형 ;
+    aicc:처리절차 aicc:청구_접수확인 .
+
+aicc:청구_접수확인  rdf:type aicc:처리단계 ;
+    aicc:다음단계  aicc:청구팀이관 ;
+    aicc:담당한다  aicc:고객응대팀 .
+
+aicc:청구팀이관  rdf:type aicc:처리단계 ;
+    aicc:담당한다 aicc:청구팀 .
+
+# ── 장애 문의 처리 절차 ────────────────────────────────
+aicc:장애문의  rdf:type aicc:문의유형 ;
+    aicc:처리절차 aicc:장애_접수확인 .
+
+aicc:장애_접수확인  rdf:type aicc:처리단계 ;
+    aicc:다음단계  aicc:기술팀이관 ;
+    aicc:담당한다  aicc:고객응대팀 .
+
+aicc:기술팀이관  rdf:type aicc:처리단계 ;
+    aicc:담당한다 aicc:기술팀 .
+
+# ── 해지 문의 처리 절차 ────────────────────────────────
+aicc:해지문의  rdf:type aicc:문의유형 ;
+    aicc:처리절차 aicc:해지_접수확인 .
+
+aicc:해지_접수확인  rdf:type aicc:처리단계 ;
+    aicc:다음단계  aicc:해지팀이관 ;
+    aicc:담당한다  aicc:고객응대팀 .
+
+aicc:해지팀이관  rdf:type aicc:처리단계 ;
+    aicc:담당한다 aicc:해지팀 .
+
+# ── 담당부서 정보 ──────────────────────────────────────
+aicc:고객응대팀  rdf:type aicc:담당부서 ;
+    aicc:연락처 "02-1234-0000" .
+
+aicc:청구팀  rdf:type aicc:담당부서 ;
+    aicc:연락처 "02-1234-5678" .
+
+aicc:기술팀  rdf:type aicc:담당부서 ;
+    aicc:연락처 "02-1234-9999" .
+
+aicc:해지팀  rdf:type aicc:담당부서 ;
+    aicc:연락처 "02-1234-3333" .
